@@ -12,7 +12,7 @@ const cli = new CLI([
   ["command2 foo", "Run handler2_1 with an argument named foo", handler2_1],
   [
     "command2 foo bar",
-    "Run handler 2_2 with 2 arguments, named foo and bar",
+    "Run handler2_2 with 2 arguments, named foo and bar",
     handler2_2,
   ],
 ]);
