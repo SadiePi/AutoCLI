@@ -57,4 +57,6 @@ Unknown command 'command3'. Type 'help' for a list of commands.
 ? >> quit
 ```
 
+The help list, invalid command message, and unknown command message are are internal. The invalid and unknown messages can be overwritten with `cli.setInvalid((cmd: string)=>{...});` and `cli.setUnknown((cmd: string)=>{...});`.
+
 TODO: Support optional arguments, e.g. `['command2 [foo [bar]]','Run handler2 with optional arguments, accepting first foo then bar', handler2]`. Unassigned arguments would be set to `undefined`.
