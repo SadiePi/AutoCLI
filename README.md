@@ -1,6 +1,6 @@
 # AutoCLI
 
-A small library for creating CLI's in TypeScript
+A small library for creating CLIs in TypeScript
 
 ## Usage example
 
@@ -40,7 +40,7 @@ $ deno run example.ts
 ? >> help
 command1: Run handler1
 command2 foo: Run handler2_1 with an argument named foo
-command2 foo bar: Run handler 2_2 with 2 arguments, named foo and bar
+command2 foo bar: Run handler2_2 with 2 arguments, named foo and bar
 
 ? >> command1
 running handler1
