@@ -56,3 +56,5 @@ running handler2_2 with foo=test1 and bar=test2
 Unknown command 'command3'. Type 'help' for a list of commands.
 ? >> quit
 ```
+
+TODO: Support optional arguments, e.g. `['command2 [foo [bar]]','Run handler2 with optional arguments, accepting first foo then bar', handler2]`. Unassigned arguments would be set to `undefined`.
