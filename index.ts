@@ -32,6 +32,10 @@ export class CLI {
   };
 
   constructor(commands: CommandShape[]) {
+    // create help message
+    this.helpMessage = commands.map((c) => `${c[0]}: ${c[1]}`).join("\n");
+
+    // create command map
     commands.forEach((shape) => {
       const parts: string[] = shape[0].split(" ");
       const argc = parts.length - 1;
@@ -40,9 +44,8 @@ export class CLI {
         overloads = new Map<number, HandlerInfo>();
         this.cmds.set(parts[0], overloads);
       }
-      if (overloads.get(argc)) throw new Error("invalid overloading");
+      if (overloads.get(argc)) throw new Error("invalid overloading"); // todo better error message
       overloads.set(argc, [shape[2], parts.slice(1)]);
-      this.helpMessage += shape[0] + ": " + shape[1] + "\n";
     });
   }
 
@@ -56,13 +59,13 @@ export class CLI {
         console.log(this.helpMessage);
         continue;
       }
-      const result = this.execute(args);
+      const result = await this.execute(args);
       if (result == 1) this.unknown(input);
       if (result == 2) this.invalid(input);
     }
   };
 
-  private readonly execute = (args: string[]): number => {
+  private readonly execute = async (args: string[]): Promise<number> => {
     const argc = args.length - 1;
     const overloads = this.cmds.get(args[0]);
     if (!overloads) return 1;
@@ -72,7 +75,7 @@ export class CLI {
 
     const data: CLIArgs = {};
     for (let i = 0; i < argc; i++) data[handlerInfo[1][i]] = args[i + 1];
-    handlerInfo[0](data);
+    await handlerInfo[0](data);
     return 0;
   };
 
