@@ -11,7 +11,7 @@ nested.setPrompt("nested >>");
 
 const root = new CLI([
   ["sample1", "Run sample1", ({}) => console.log("running sample1")],
-  ["nest", "Run the nested CLI", await nested.run],
+  ["nest", "Run the nested CLI", nested.run],
 ]);
 root.setPrompt("root >>");
 await root.run();
