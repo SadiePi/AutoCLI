@@ -23,4 +23,7 @@ function handler2_2({ foo, bar }: CLIArgs) {
 }
 
 cli.setPrompt(">>");
+cli.setInvalid((s) => {
+  console.log("nope");
+});
 cli.run();
