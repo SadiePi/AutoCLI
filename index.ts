@@ -20,14 +20,14 @@ export class CLI {
   private cmds: CommandMap = new Map();
   private helpMessage: string = "";
   private prompt: string = "";
-  private invalid = (args: string) => {
+  private invalid = (cmd: string) => {
     console.log(
-      `Invalid command '${args}'. Type 'help' for a list of commands.`
+      `Invalid command '${cmd}'. Type 'help' for a list of commands.`
     );
   };
-  private unknown = (args: string) => {
+  private unknown = (cmd: string) => {
     console.log(
-      `Unknown command '${args}'. Type 'help' for a list of commands.`
+      `Unknown command '${cmd}'. Type 'help' for a list of commands.`
     );
   };
 
