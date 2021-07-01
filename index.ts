@@ -5,16 +5,16 @@
 import Ask from "https://deno.land/x/ask@1.0.6/mod.ts";
 const ask = new Ask();
 
+export interface CLIArgs {
+  [args: string]: string;
+}
+export type Handler = (args: CLIArgs) => void;
+export type CommandShape = [string, string, Handler];
+
 type HandlerArgNames = string[];
 type HandlerInfo = [Handler, HandlerArgNames];
 type OverloadMap = Map<number, HandlerInfo>;
 type CommandMap = Map<string, OverloadMap>;
-
-export type CommandShape = [string, string, Handler];
-export type Handler = (args: CLIArgs) => void;
-export interface CLIArgs {
-  [args: string]: string;
-}
 
 export class CLI {
   private cmds: CommandMap = new Map();
