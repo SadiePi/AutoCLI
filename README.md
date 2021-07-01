@@ -1,6 +1,6 @@
 # AutoCLI
 
-A small library for creating CLI's in TypeScript
+A small library for creating CLIs in TypeScript
 
 ## Usage example
 
