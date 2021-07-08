@@ -1,4 +1,4 @@
-import { CLI, CLIArgs } from "../index.ts";
+import { CLI, CLIArgs } from "../mod.ts";
 
 const cli = new CLI([
   ["command1", "Run handler1", handler1],
