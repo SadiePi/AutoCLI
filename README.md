@@ -5,7 +5,7 @@ A small library for creating CLIs in TypeScript
 ## Usage example
 
 ```ts
-import { CLI, CLIArgs } from "/path/to/AutoCLI/index.ts";
+import { CLI, CLIArgs } from "/path/to/AutoCLI/mod.ts";
 
 const cli = new CLI([
   ["command1", "Run handler1", handler1],
